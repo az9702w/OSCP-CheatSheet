@@ -136,8 +136,14 @@ nmap -sS 10.11.1.111
 # Full complete slow scan with output
 nmap -v -sT -A -T4 -p- -Pn --script vuln -oA full 10.11.1.111
 
+# Services exposed to network
+sudo nmap 10.11.1.111 -p- -sV -vv --open --reason
+
 # Autorecon
 python3 autorecon.py 10.11.1.111
+
+# nmap enumerator
+./nmapAutomator.sh 10.11.1.111 All  
 
 # OneTwoPunch
 https://raw.githubusercontent.com/superkojiman/onetwopunch/master/onetwopunch.sh
